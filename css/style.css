@@ -62,13 +62,12 @@
   /*CARD LIST*/
   #cardList {
     height: 600px;
-    width: 50vw;
+    width: 90vw;
     margin: 60px auto;
     overflow-y: auto;
     gap: 20px;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: space-around;
   }
   
@@ -81,23 +80,29 @@
   /* CARD*/
 
   .card{
+    transition: .5s;
     height: 220px;
     width: 360px;
     border-radius: 5px;
     transform-style: preserve-3d;
     border: 4px solid transparent;
+    cursor: pointer;
   }
 
   .titleCard{
     background-color: var(--color-primary);
     height: 46px;
-    width: 100%;
+    width: 100%; 
     border-radius: 5px;
     font-size: 20px;
     font-weight: 400;
-    line-height: 23px;
     text-align: center;
+    line-height: 23px;
     padding: 10px;
+  }
+
+  .flip{
+    transform: rotateY(180deg);
   }
 
  
@@ -112,6 +117,7 @@
 
   .front,.back{
     border-radius: 5px;
+    display: flex;
     flex-direction: column;
     background-image: url("../assets/card-bg.png");
     backface-visibility: hidden;
@@ -119,6 +125,15 @@
 
   .front{
     transform: rotateY(180deg);
+  }
+
+ .cardData {
+    height: 174px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
   }
 
   .cardData > li,
@@ -171,4 +186,5 @@
       flex-wrap: nowrap;
     }
   }
+
   
