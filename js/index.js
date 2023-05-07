@@ -20,13 +20,16 @@ async function showCards(){
 
       li.classList.add('card','listCard')
       divFront.classList.add('face','front')
-    
-      divNameFront.classList.add('titleCard')
-      li.innerText = resultElement.name
 
+      
+      divNameFront.classList.add('titleCard')
+      divNameFront.innerText = resultElement.name
+      
       divNameBack.classList.add('titleCard')
       divNameBack.innerText = resultElement.name
-
+      
+      dataList.classList.add('cardData')
+      
       yearBirth.innerText = `Ano de nascimento: ${resultElement.birth_year}`
 
       const namePlanet =  await fetch(resultElement.homeworld).then(response => {
@@ -48,12 +51,20 @@ async function showCards(){
       listCardsElement.append(li)
   } 
 
+  swipeCard()
+
  }
 
  function swipeCard(){
-    const cardsList = document.querySelectorAll('listCard')
+    const cardsList = document.querySelectorAll('.listCard')
 
-    
+    for(let i = 0; i < cardsList.length; i++){
+        const card = cardsList[i]
+
+        card.addEventListener('click',()=> {
+            card.classList.toggle('flip')
+         })
+    }
  }
 
 showCards()
